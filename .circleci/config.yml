@@ -12,7 +12,7 @@ jobs:
       GO_VERSION: 1.12.5
       # We don't need a GOPATH but CircleCI defines it, so we override it
       GOPATH: /home/circleci/go
-      PATH: /bin:/usr/bin:/usr/local/go/bin:/home/circleci/go/bin:/usr/local/bin:/sbin
+      PATH: /sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/go/bin:/home/circleci/go/bin
     steps:
       - checkout
       - setup_remote_docker:
@@ -28,7 +28,7 @@ jobs:
             tar -xvf go${GO_VERSION}.linux-amd64.tar.gz
             rm -rf /usr/local/go
             mv go /usr/local
-            ls -al /usr/local/go/bin
+            ls -al /usr/local/go/bin/go
             mkdir -p "$HOME/go/bin"
             go version
       - run:
