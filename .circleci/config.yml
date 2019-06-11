@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Install Golang
           command: |
+            which apk
             apk add --no-cache curl git rng-tools memcached
             curl -OL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz
             tar -xf go${GO_VERSION}.linux-amd64.tar.gz
