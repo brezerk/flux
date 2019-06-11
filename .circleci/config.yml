@@ -28,7 +28,7 @@ jobs:
             tar -xvf go${GO_VERSION}.linux-amd64.tar.gz
             rm -rf /usr/local/go
             mv go /usr/local
-            ls -al /usr/local/go
+            ls -al /usr/local/go/bin
             mkdir -p "$HOME/go/bin"
             go version
       - run:
