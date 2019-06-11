@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Install Golang
           command: |
-            apt-get install -y curl git rng-tools memcached
+            apk install -y curl git rng-tools memcached
             curl -OL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz
             tar -xf go${GO_VERSION}.linux-amd64.tar.gz
             sudo rm -rf /usr/local/go
