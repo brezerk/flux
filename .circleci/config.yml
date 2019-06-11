@@ -14,7 +14,7 @@ jobs:
           version: 18.06.0-ce
       - run: docker run --privileged linuxkit/binfmt:v0.6
       - attach_workspace:
-        .
+          .
       - run:
           name: Install Golang
           command: |
