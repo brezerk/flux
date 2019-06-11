@@ -23,18 +23,18 @@ jobs:
       - run:
           name: Install Golang
           command: |
-            apk install -y curl git rng-tools memcached
+            apk add --no-cache curl git rng-tools memcached
             curl -OL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz
             tar -xf go${GO_VERSION}.linux-amd64.tar.gz
-            sudo rm -rf /usr/local/go
-            sudo mv go /usr/local
+            rm -rf /usr/local/go
+            mv go /usr/local
             mkdir -p "$HOME/go/bin"
             go version
       - run:
           name: Update packages and Start Memcached
           command: |
             # These repos fail and we don't need them:
-            sudo rm /etc/apt/sources.list.d/circleci_trusty.list /etc/apt/sources.list.d/google-chrome.list
+            rm /etc/apt/sources.list.d/circleci_trusty.list /etc/apt/sources.list.d/google-chrome.list
             git version
             docker version
       - restore_cache:
