@@ -12,7 +12,7 @@ jobs:
       GO_VERSION: 1.12.5
       # We don't need a GOPATH but CircleCI defines it, so we override it
       GOPATH: /home/circleci/go
-#      PATH: /bin:/usr/bin:/usr/local/go/bin:/home/circleci/go/bin
+      PATH: /bin:/usr/bin:/usr/local/go/bin:/home/circleci/go/bin:/usr/local/bin
     steps:
       - checkout
       - setup_remote_docker:
@@ -23,7 +23,6 @@ jobs:
       - run:
           name: Install Golang
           command: |
-            which docker
             curl -OL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz
             tar -xf go${GO_VERSION}.linux-amd64.tar.gz
             sudo rm -rf /usr/local/go
