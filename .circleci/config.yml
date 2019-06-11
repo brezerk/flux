@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 executors:
   publisher:
     docker:
@@ -6,8 +6,8 @@ executors:
 jobs:
   build:
     executor: publisher
-    working_directory: ~/flux
-    machine: true
+#    working_directory: ~/flux
+#    machine: true
     environment:
       GO_VERSION: 1.12.5
       # We don't need a GOPATH but CircleCI defines it, so we override it
