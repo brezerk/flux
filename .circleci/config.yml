@@ -23,6 +23,8 @@ jobs:
       - run:
           name: Install Golang
           command: |
+            sudo apt-get update
+            sudo apt-get install -y curl git rng-tools memcached
             curl -OL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz
             tar -xf go${GO_VERSION}.linux-amd64.tar.gz
             sudo rm -rf /usr/local/go
@@ -34,8 +36,6 @@ jobs:
           command: |
             # These repos fail and we don't need them:
             sudo rm /etc/apt/sources.list.d/circleci_trusty.list /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get install -y git rng-tools docker-ce memcached
             git version
             docker version
       - restore_cache:
